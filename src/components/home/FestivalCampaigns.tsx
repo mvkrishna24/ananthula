@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { TextilePanel } from "@/components/textile/TextilePanel";
+import { MediaSlot } from "@/components/media/MediaSlot";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { campaigns } from "@/data/campaigns";
 
@@ -18,8 +18,9 @@ export function FestivalCampaigns() {
 
   return (
     <section
+      id="festivals"
       aria-labelledby="festival-heading"
-      className="bg-ivory py-24 md:py-36"
+      className="scroll-mt-20 bg-ivory py-24 md:py-36"
     >
       <div className="mx-auto max-w-[1680px] px-5 sm:px-8 lg:px-12">
         <div className="flex flex-wrap items-end justify-between gap-6">
@@ -73,12 +74,12 @@ export function FestivalCampaigns() {
           className="relative mt-8 overflow-hidden"
         >
           <div key={campaign.slug} className="campaign-fade relative">
-            <TextilePanel
-              textile={campaign.textile}
+            <MediaSlot
+              slot={campaign.media}
               idSuffix={`fc-${campaign.slug}`}
               className="h-[420px] w-full md:h-[520px]"
               scrim={0.45}
-              ariaLabel={`${campaign.name} campaign — generative textile artwork`}
+              sizes="(min-width: 1680px) 1584px, 92vw"
             />
             <div className="absolute inset-0 flex flex-col justify-end p-7 text-ivory md:p-14">
               <p

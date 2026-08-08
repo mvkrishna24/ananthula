@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { TextilePanel } from "@/components/textile/TextilePanel";
+import { MediaSlot } from "@/components/media/MediaSlot";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { EditorialLink } from "@/components/ui/EditorialLink";
 import { arrivals } from "@/data/arrivals";
@@ -39,12 +39,12 @@ export function NewArrivals() {
         <div className="mt-14 grid gap-6 md:mt-20 lg:grid-cols-[1.6fr_1fr]">
           {/* hero tile */}
           <Link href={hero.href} data-reveal className="group relative block overflow-hidden">
-            <TextilePanel
-              textile={hero.textile}
+            <MediaSlot
+              slot={hero.media}
               idSuffix="na-hero"
               className="h-[420px] w-full transition-transform duration-[1300ms] ease-[var(--ease-editorial)] group-hover:scale-[1.03] lg:h-full lg:min-h-[560px]"
               scrim={0.4}
-              ariaLabel={`${hero.title} — generative silk artwork`}
+              sizes="(min-width: 1024px) 60vw, 92vw"
             />
             <div className="absolute inset-0 flex flex-col justify-end p-7 text-ivory md:p-10">
               <p className="eyebrow !text-[0.6rem] text-zari-bright">
@@ -67,11 +67,11 @@ export function NewArrivals() {
                 style={{ "--reveal-delay": `${i * 0.1}s` } as React.CSSProperties}
               >
                 <div className="relative overflow-hidden">
-                  <TextilePanel
-                    textile={item.textile}
+                  <MediaSlot
+                    slot={item.media}
                     idSuffix={`na${i}`}
                     className="aspect-[4/5] w-full transition-transform duration-[1200ms] ease-[var(--ease-editorial)] group-hover:scale-[1.04]"
-                    ariaLabel={`${item.title} — generative silk artwork`}
+                    sizes="(min-width: 1024px) 20vw, 45vw"
                   />
                   <p className="font-display absolute right-3 top-3 text-3xl text-ivory/40">
                     {item.index}

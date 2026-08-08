@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { TextilePanel } from "@/components/textile/TextilePanel";
+import { MediaSlot } from "@/components/media/MediaSlot";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { familyWorlds } from "@/data/collections";
 
@@ -40,12 +40,12 @@ export function FamilyWardrobe() {
             href={world.href}
             className="group relative flex-1 overflow-hidden transition-[flex-grow] duration-700 ease-[var(--ease-editorial)] hover:flex-[1.9] focus-visible:flex-[1.9] lg:flex-[1]"
           >
-            <TextilePanel
-              textile={world.textile}
+            <MediaSlot
+              slot={world.media}
               idSuffix={`fw${i}`}
               className="h-full min-h-[380px] w-full transition-transform duration-[1400ms] ease-[var(--ease-editorial)] group-hover:scale-[1.04]"
               scrim={0.35}
-              ariaLabel={`${world.title} — generative textile artwork`}
+              sizes="(min-width: 1024px) 40vw, 92vw"
             />
             <div className="absolute inset-0 flex flex-col justify-end p-7 pb-10 text-ivory lg:p-10 lg:pb-12">
               <p className="eyebrow !text-[0.6rem] text-zari-bright/90">

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { TextilePanel } from "@/components/textile/TextilePanel";
+import { MediaSlot } from "@/components/media/MediaSlot";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { timeline } from "@/data/timeline";
 import { brand } from "@/data/brand";
@@ -17,12 +17,12 @@ export default function LegacyPage() {
       {/* chapter opening */}
       <section className="on-dark grain relative flex min-h-[72svh] flex-col justify-end overflow-hidden bg-charcoal text-ivory">
         <div className="absolute inset-0">
-          <TextilePanel
-            textile="agedLoom"
+          <MediaSlot
+            slot="heritageLoom"
             idSuffix="legacy-hero"
             className="h-full w-full"
             scrim={0.5}
-            ariaLabel="Aged loom textile — generative artwork"
+            priority
           />
         </div>
         <div className="relative mx-auto w-full max-w-[1680px] px-5 pb-20 pt-44 sm:px-8 lg:px-12">
@@ -56,11 +56,11 @@ export default function LegacyPage() {
                   <p className="mt-4 max-w-[30em] text-muted">{moment.body}</p>
                 </div>
                 <figure data-reveal="mask" className="border border-ink/12 bg-ivory p-4 shadow-[0_18px_50px_-30px_rgba(17,17,15,0.35)]">
-                  <TextilePanel
-                    textile={moment.textile}
+                  <MediaSlot
+                    slot={moment.media}
                     idSuffix={`lg${i}`}
                     className="aspect-[4/3] w-full"
-                    ariaLabel={`Textile artwork standing in for: ${moment.archiveLabel}`}
+                    sizes="(min-width: 768px) 54vw, 92vw"
                   />
                   <figcaption className="eyebrow mt-3 !text-[0.58rem] text-muted">
                     Archive {String(i + 1).padStart(2, "0")} — {moment.archiveLabel}

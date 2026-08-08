@@ -1,4 +1,5 @@
 import type { TextileName } from "@/data/textiles";
+import type { MediaSlotName } from "@/data/media";
 
 /** All merchandising content is DEMO_CONTENT — owner confirms before production. */
 
@@ -8,6 +9,8 @@ export type Collection = {
   eyebrow: string;
   description: string;
   textile: TextileName;
+  /** Photography slot (falls back to the textile artwork when absent). */
+  media: MediaSlotName;
   href: string;
   status: "confirmed" | "demo";
 };
@@ -15,6 +18,7 @@ export type Collection = {
 export const pattuChapters: Collection[] = [
   {
     slug: "kanchipuram-pattu",
+    media: "pattuKanchipuram",
     title: "Kanchi Pattu",
     eyebrow: "01 · The Signature",
     description:
@@ -25,6 +29,7 @@ export const pattuChapters: Collection[] = [
   },
   {
     slug: "pure-pattu",
+    media: "pattuPure",
     title: "Pure Pattu",
     eyebrow: "02 · The Tradition",
     description:
@@ -35,6 +40,7 @@ export const pattuChapters: Collection[] = [
   },
   {
     slug: "bridal-pattu",
+    media: "pattuBridal",
     title: "Bridal Pattu",
     eyebrow: "03 · The Heirloom",
     description:
@@ -45,6 +51,7 @@ export const pattuChapters: Collection[] = [
   },
   {
     slug: "soft-silk",
+    media: "pattuSoftSilk",
     title: "Soft Silk",
     eyebrow: "04 · The Everyday Grace",
     description:
@@ -55,6 +62,7 @@ export const pattuChapters: Collection[] = [
   },
   {
     slug: "designer-fancy",
+    media: "pattuDesigner",
     title: "Designer & Fancy",
     eyebrow: "05 · The New Wave",
     description:
@@ -68,6 +76,7 @@ export const pattuChapters: Collection[] = [
 export const familyWorlds: Collection[] = [
   {
     slug: "women",
+    media: "womenEditorial",
     title: "Women",
     eyebrow: "Timeless. Festive. Contemporary.",
     description:
@@ -78,6 +87,7 @@ export const familyWorlds: Collection[] = [
   },
   {
     slug: "men",
+    media: "menEditorial",
     title: "Men",
     eyebrow: "Tradition, tailored forward.",
     description:
@@ -88,6 +98,7 @@ export const familyWorlds: Collection[] = [
   },
   {
     slug: "kids",
+    media: "kidsEditorial",
     title: "Kids",
     eyebrow: "Little celebrations. Big memories.",
     description:
@@ -104,12 +115,15 @@ export type CollectionPage = {
   eyebrow: string;
   intro: string;
   textile: TextileName;
+  /** Photography slot for the page hero. */
+  heroMedia: MediaSlotName;
   chapters: { title: string; note: string; textile: TextileName }[];
 };
 
 export const collectionPages: Record<string, CollectionPage> = {
   pattu: {
     slug: "pattu",
+    heroMedia: "pattuMacro",
     title: "Silk that becomes memory.",
     eyebrow: "The Pattu Legacy",
     intro:
@@ -141,6 +155,7 @@ export const collectionPages: Record<string, CollectionPage> = {
   },
   wedding: {
     slug: "wedding",
+    heroMedia: "weddingCouple",
     title: "For the day every generation remembers.",
     eyebrow: "The Wedding Edit",
     intro:
@@ -166,6 +181,7 @@ export const collectionPages: Record<string, CollectionPage> = {
   },
   women: {
     slug: "women",
+    heroMedia: "womenEditorial",
     title: "Timeless. Festive. Contemporary.",
     eyebrow: "Women",
     intro:
@@ -180,6 +196,7 @@ export const collectionPages: Record<string, CollectionPage> = {
   },
   men: {
     slug: "men",
+    heroMedia: "menEditorial",
     title: "Tradition, tailored forward.",
     eyebrow: "Men",
     intro:
@@ -194,6 +211,7 @@ export const collectionPages: Record<string, CollectionPage> = {
   },
   kids: {
     slug: "kids",
+    heroMedia: "kidsEditorial",
     title: "Little celebrations. Big memories.",
     eyebrow: "Kids",
     intro:

@@ -1,4 +1,4 @@
-import { TextilePanel } from "@/components/textile/TextilePanel";
+import { MediaSlot } from "@/components/media/MediaSlot";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { stores } from "@/data/stores";
 
@@ -71,20 +71,20 @@ export function StoreExperience() {
           </div>
         </div>
 
-        {/* the counter — folded silks awaiting the client's interior photography */}
+        {/* the showroom — interior and counter photography slots */}
         <div data-reveal="mask" className="relative">
           <div className="grid grid-cols-2 gap-4">
-            <TextilePanel
-              textile="winePallu"
+            <MediaSlot
+              slot="storeInterior"
               idSuffix="st1"
               className="aspect-[3/4] w-full"
-              ariaLabel="Folded wine pattu silk — generative artwork"
+              sizes="(min-width: 1024px) 24vw, 45vw"
             />
-            <TextilePanel
-              textile="kanchiEmerald"
+            <MediaSlot
+              slot="storeCounter"
               idSuffix="st2"
               className="mt-10 aspect-[3/4] w-full"
-              ariaLabel="Folded emerald pattu silk — generative artwork"
+              sizes="(min-width: 1024px) 24vw, 45vw"
             />
           </div>
           <p className="eyebrow mt-4 !text-[0.56rem] text-muted">

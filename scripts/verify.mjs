@@ -50,7 +50,7 @@ const errors = [];
   const introVisible = await page.$eval("html", (el) => el.hasAttribute("data-intro-done"));
   if (!introVisible) errors.push("reduced-motion: intro did not auto-complete");
   const heroText = await page.textContent("h1");
-  if (!heroText?.includes("Dressing")) errors.push("reduced-motion: hero text missing");
+  if (!heroText?.includes("Ananthula")) errors.push("reduced-motion: hero text missing");
   await page.screenshot({ path: `${OUT}/reduced-motion.png` });
   await ctx.close();
 }

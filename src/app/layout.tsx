@@ -6,6 +6,7 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { MobileActionBar } from "@/components/layout/MobileActionBar";
 import { brand } from "@/data/brand";
+import { getAvailableMedia } from "@/lib/mediaInventory";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -61,12 +62,19 @@ const localBusinessJsonLd = {
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
+  const availableMedia = getAvailableMedia();
   return (
     <html
       lang="en"
       className={`${cormorant.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
+        {/* photo inventory — lets MediaSlot skip requests for absent files */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.__AK_MEDIA__=${JSON.stringify(availableMedia)}`,
+          }}
+        />
         <MotionProvider />
         <SiteHeader />
         <main className="flex-1">{children}</main>

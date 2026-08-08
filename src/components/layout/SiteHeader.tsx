@@ -5,13 +5,21 @@ import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { brand } from "@/data/brand";
 
+const sareeSubNav = [
+  { label: "Kanchipuram Pattu", href: "/collections/pattu#kanchi-kanchipuram-pattu" },
+  { label: "Pure Pattu", href: "/collections/pattu#pure-pattu" },
+  { label: "Bridal", href: "/collections/pattu#bridal-pattu" },
+  { label: "Designer & Fancy", href: "/collections/pattu#designer-fancy" },
+];
+
 const primaryNav = [
   { label: "New Arrivals", href: "/new-arrivals" },
-  { label: "Pattu & Sarees", href: "/collections/pattu" },
-  { label: "Wedding", href: "/collections/wedding" },
+  { label: "Sarees", href: "/collections/pattu", children: sareeSubNav },
   { label: "Women", href: "/collections/women" },
   { label: "Men", href: "/collections/men" },
   { label: "Kids", href: "/collections/kids" },
+  { label: "Wedding", href: "/collections/wedding" },
+  { label: "Festivals", href: "/#festivals" },
   { label: "Our Story", href: "/legacy" },
   { label: "Stores", href: "/stores" },
 ];
@@ -82,15 +90,41 @@ export function SiteHeader() {
             aria-label="Primary"
             className="hidden items-center gap-7 xl:flex"
           >
-            {primaryNav.slice(0, 6).map((item) => (
-              <Link
-                key={item.href + item.label}
-                href={item.href}
-                className="link-underline !pb-1 !text-[0.68rem]"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {primaryNav.slice(0, 6).map((item) =>
+              item.children ? (
+                <div key={item.label} className="group/dd relative">
+                  <Link
+                    href={item.href}
+                    className="link-underline !pb-1 !text-[0.68rem]"
+                    aria-haspopup="true"
+                  >
+                    {item.label}
+                  </Link>
+                  {/* dropdown — hover and keyboard (focus-within) friendly */}
+                  <div className="invisible absolute left-1/2 top-full -translate-x-1/2 pt-4 opacity-0 transition-[opacity,visibility] duration-300 group-focus-within/dd:visible group-focus-within/dd:opacity-100 group-hover/dd:visible group-hover/dd:opacity-100">
+                    <div className="w-56 border border-ink/10 bg-rice p-2 text-ink shadow-[0_24px_50px_-24px_rgba(17,17,15,0.35)]">
+                      {item.children.map((sub) => (
+                        <Link
+                          key={sub.href}
+                          href={sub.href}
+                          className="block px-4 py-2.5 text-[0.8rem] text-ink/75 transition-colors hover:bg-ivory hover:text-ink focus-visible:bg-ivory focus-visible:text-ink"
+                        >
+                          {sub.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  key={item.href + item.label}
+                  href={item.href}
+                  className="link-underline !pb-1 !text-[0.68rem]"
+                >
+                  {item.label}
+                </Link>
+              ),
+            )}
           </nav>
 
           <div className="flex items-center gap-3 sm:gap-5">
@@ -167,10 +201,24 @@ export function SiteHeader() {
                     <span className="eyebrow !text-[0.6rem] text-zari-bright">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="font-display text-[clamp(1.8rem,4.5vw,3.4rem)] leading-tight transition-transform duration-500 group-hover:translate-x-3 group-focus-visible:translate-x-3">
+                    <span className="font-display text-[clamp(1.7rem,4.2vw,3.2rem)] leading-tight transition-transform duration-500 group-hover:translate-x-3 group-focus-visible:translate-x-3">
                       {item.label}
                     </span>
                   </Link>
+                  {item.children && (
+                    <div className="flex flex-wrap gap-x-6 gap-y-1 pb-4 pl-12">
+                      {item.children.map((sub) => (
+                        <Link
+                          key={sub.href}
+                          href={sub.href}
+                          onClick={close}
+                          className="text-[0.82rem] text-ivory/60 transition-colors hover:text-zari-bright focus-visible:text-zari-bright"
+                        >
+                          {sub.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </li>
               ))}
             </ol>

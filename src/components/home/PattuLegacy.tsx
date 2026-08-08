@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useRef } from "react";
-import { TextilePanel } from "@/components/textile/TextilePanel";
+import { MediaSlot } from "@/components/media/MediaSlot";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { EditorialLink } from "@/components/ui/EditorialLink";
 import { pattuChapters } from "@/data/collections";
@@ -90,16 +90,16 @@ export function PattuLegacy() {
           >
             <Link href={chapter.href} className="block">
               <div className="relative overflow-hidden">
-                <TextilePanel
-                  textile={chapter.textile}
+                <MediaSlot
+                  slot={chapter.media}
                   idSuffix={`p${i}`}
                   className="aspect-[3/4] w-full transition-transform duration-[1200ms] ease-[var(--ease-editorial)] group-hover:scale-[1.03]"
-                  ariaLabel={`${chapter.title} — generative silk artwork`}
+                  sizes="(min-width: 1280px) 560px, (min-width: 1024px) 44vw, (min-width: 640px) 60vw, 82vw"
                 />
-                {/* light sweep on hover — the silk responds */}
+                {/* restrained light sweep on hover */}
                 <div
                   aria-hidden
-                  className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-[1100ms] ease-[var(--ease-fabric)] group-hover:translate-x-[120%]"
+                  className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-gradient-to-r from-transparent via-white/[0.07] to-transparent transition-transform duration-[1100ms] ease-[var(--ease-fabric)] group-hover:translate-x-[120%]"
                 />
                 <p className="font-display absolute right-4 top-4 text-5xl text-ivory/35">
                   {String(i + 1).padStart(2, "0")}

@@ -1,7 +1,7 @@
-import { TextilePanel } from "@/components/textile/TextilePanel";
+import { MediaSlot } from "@/components/media/MediaSlot";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { brand } from "@/data/brand";
-import type { TextileName } from "@/data/textiles";
+import type { MediaSlotName } from "@/data/media";
 
 /**
  * SECTION 12 — Social / Reels.
@@ -9,12 +9,12 @@ import type { TextileName } from "@/data/textiles";
  * textile artwork until the store's own reels are supplied.
  */
 export function SocialReels() {
-  const frames: { textile: TextileName; label: string }[] = [
-    { textile: "arakkuBridal", label: "Bridal pattu unfolding" },
-    { textile: "turmericFestive", label: "Festive edit, this week" },
-    { textile: "ivoryTissue", label: "Wedding-morning silks" },
-    { textile: "peacockNight", label: "New colours at the counter" },
-    { textile: "onionPink", label: "Soft silk drape check" },
+  const frames: { media: MediaSlotName; label: string }[] = [
+    { media: "reel01", label: "Bridal pattu unfolding" },
+    { media: "reel02", label: "Festive edit, this week" },
+    { media: "reel03", label: "Wedding-morning silks" },
+    { media: "reel04", label: "New colours at the counter" },
+    { media: "reel05", label: "Soft silk drape check" },
   ];
 
   return (
@@ -43,12 +43,12 @@ export function SocialReels() {
         {frames.map((frame, i) => (
           <figure key={frame.label} className="w-[220px] sm:w-[250px]">
             <div className="relative overflow-hidden">
-              <TextilePanel
-                textile={frame.textile}
+              <MediaSlot
+                slot={frame.media}
                 idSuffix={`sr${i}`}
                 className="aspect-[9/16] w-full"
                 scrim={0.25}
-                ariaLabel={`${frame.label} — reel frame placeholder`}
+                sizes="250px"
               />
               {/* play affordance */}
               <span

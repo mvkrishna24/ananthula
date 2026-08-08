@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { getGsap, prefersReducedMotion } from "@/lib/gsap";
-import { TextilePanel } from "@/components/textile/TextilePanel";
+import { MediaSlot } from "@/components/media/MediaSlot";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { EditorialLink } from "@/components/ui/EditorialLink";
 import { timeline } from "@/data/timeline";
@@ -140,11 +140,11 @@ export function LegacyTimeline() {
                 >
                   {/* archival plate — museum-style frame awaiting family photographs */}
                   <figure className="border border-ink/12 bg-ivory p-3 shadow-[0_18px_50px_-30px_rgba(17,17,15,0.35)] sm:p-4">
-                    <TextilePanel
-                      textile={moment.textile}
+                    <MediaSlot
+                      slot={moment.media}
                       idSuffix={`tl${i}`}
                       className="aspect-[4/3] w-full"
-                      ariaLabel={`Textile artwork standing in for: ${moment.archiveLabel}`}
+                      sizes="(min-width: 768px) 44vw, 92vw"
                     />
                     <figcaption className="eyebrow mt-3 !text-[0.58rem] !tracking-[0.18em] text-muted">
                       Archive {String(i + 1).padStart(2, "0")} —{" "}

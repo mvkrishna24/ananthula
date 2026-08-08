@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { MediaSlot } from "@/components/media/MediaSlot";
 import { TextilePanel } from "@/components/textile/TextilePanel";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { collectionPages } from "@/data/collections";
 import { brand } from "@/data/brand";
+
+const anchorId = (title: string) =>
+  title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
 
 export function generateStaticParams() {
   return Object.keys(collectionPages).map((slug) => ({ slug }));
@@ -34,12 +41,12 @@ export default async function CollectionPage({
       {/* chapter hero */}
       <section className="on-dark grain relative flex min-h-[78svh] flex-col justify-end overflow-hidden bg-charcoal text-ivory">
         <div className="absolute inset-0">
-          <TextilePanel
-            textile={page.textile}
+          <MediaSlot
+            slot={page.heroMedia}
             idSuffix={`col-${page.slug}`}
             className="h-full w-full"
             scrim={0.45}
-            ariaLabel={`${page.eyebrow} — generative silk artwork`}
+            priority
           />
         </div>
         <div className="relative mx-auto w-full max-w-[1680px] px-5 pb-20 pt-44 sm:px-8 lg:px-12">
@@ -63,7 +70,9 @@ export default async function CollectionPage({
             {page.chapters.map((chapter, i) => (
               <li
                 key={chapter.title}
+                id={anchorId(chapter.title)}
                 data-reveal
+                className="scroll-mt-28"
                 style={{ "--reveal-delay": `${(i % 3) * 0.1}s` } as React.CSSProperties}
               >
                 <div className="group relative overflow-hidden">

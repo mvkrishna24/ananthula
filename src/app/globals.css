@@ -193,6 +193,23 @@ html[data-reveal-ready][data-intro-done] .hero-reveal {
       transform: scale(1);
     }
   }
+  .scroll-cue {
+    animation: scroll-cue 2.6s var(--ease-fabric) infinite;
+  }
+  @keyframes scroll-cue {
+    0% {
+      transform: translateY(-30%);
+      opacity: 0;
+    }
+    35% {
+      opacity: 1;
+    }
+    70%,
+    100% {
+      transform: translateY(30%);
+      opacity: 0;
+    }
+  }
 }
 
 /* ------------------------------------------------------------------ */

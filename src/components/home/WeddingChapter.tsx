@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { TextilePanel } from "@/components/textile/TextilePanel";
+import { MediaSlot } from "@/components/media/MediaSlot";
 import { brand } from "@/data/brand";
+import type { MediaSlotName } from "@/data/media";
 
 /**
  * SECTION 05 — The Wedding Chapter.
@@ -9,10 +10,10 @@ import { brand } from "@/data/brand";
  * commercial promise and a working WhatsApp path.
  */
 export function WeddingChapter() {
-  const panels = [
-    { title: "For the Bride", note: "Bridal pattu · silk · heirloom", textile: "arakkuBridal" as const },
-    { title: "For the Groom", note: "Silk · ethnic · occasion", textile: "inkRawSilk" as const },
-    { title: "For the Family", note: "Everyone in the photograph", textile: "ivoryTissue" as const },
+  const panels: { title: string; note: string; media: MediaSlotName }[] = [
+    { title: "For the Bride", note: "Bridal pattu · silk · heirloom", media: "weddingBride" },
+    { title: "For the Groom", note: "Silk · ethnic · occasion", media: "weddingGroom" },
+    { title: "For the Family", note: "Everyone in the photograph", media: "weddingFamily" },
   ];
 
   return (
@@ -54,15 +55,15 @@ export function WeddingChapter() {
               style={{ "--reveal-delay": `${i * 0.12}s` } as React.CSSProperties}
             >
               <div className="relative overflow-hidden">
-                <TextilePanel
-                  textile={panel.textile}
+                <MediaSlot
+                  slot={panel.media}
                   idSuffix={`wd${i}`}
                   className="aspect-[3/4] w-full transition-transform duration-[1300ms] ease-[var(--ease-editorial)] group-hover:scale-[1.035]"
-                  ariaLabel={`${panel.title} — generative silk artwork`}
+                  sizes="(min-width: 768px) 31vw, 92vw"
                 />
                 <div
                   aria-hidden
-                  className="pointer-events-none absolute inset-0 translate-x-[-130%] bg-gradient-to-r from-transparent via-white/8 to-transparent transition-transform duration-[1200ms] ease-[var(--ease-fabric)] group-hover:translate-x-[130%]"
+                  className="pointer-events-none absolute inset-0 translate-x-[-130%] bg-gradient-to-r from-transparent via-white/[0.06] to-transparent transition-transform duration-[1200ms] ease-[var(--ease-fabric)] group-hover:translate-x-[130%]"
                 />
               </div>
               <h3 className="font-display mt-5 text-2xl md:text-[1.7rem]">

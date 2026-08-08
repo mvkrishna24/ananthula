@@ -27,12 +27,20 @@ original textile-art direction. The brief's curated Unsplash list (see
 `ANANTHULA_KEDARI_DEMO_MASTER_BRIEF.md` §11) remains the approved source
 for a photography pass when built in an unrestricted environment.
 
-## How to add real photography
+## How to add real photography — drop-in, zero code
 
-1. Save optimized AVIF/WebP files under `public/images/` with semantic
-   names (`hero-bridal-pattu.avif`, `store-facade-evening.avif`, …).
-2. Record source / photographer / license for each file in this document.
-3. Replace the relevant `<TextilePanel …>` with `next/image` — every slot
-   is a single component swap; layout, scrims and captions already exist.
-4. Keep `TextilePanel` for borders, dividers and campaign backgrounds —
-   it is part of the brand system, not just a fallback.
+Every photographic surface is a `MediaSlot` (see
+`src/components/media/MediaSlot.tsx`) driven by the manifest in
+`src/data/media.ts`. Each manifest entry lists the exact `/public` path,
+alt text, recommended aspect/export size and the textile artwork used as
+its fallback.
+
+1. Export the photo as WebP at the listed size.
+2. Save it at the exact path listed in `src/data/media.ts`
+   (e.g. `public/images/hero/hero-pattu-woman.webp`).
+3. Refresh — the slot cross-fades from textile artwork to the photograph.
+   Missing files can never break a composition; the textile remains.
+4. Record source / photographer / license for each file in this document.
+
+`TextilePanel` remains part of the brand system (borders, dividers,
+occasion tiles, fallbacks) — not just a placeholder.

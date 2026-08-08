@@ -1,4 +1,5 @@
 import type { TextileName } from "@/data/textiles";
+import type { MediaSlotName } from "@/data/media";
 
 /**
  * Seasonal campaign platform — swap or reorder these objects to re-skin the
@@ -12,6 +13,8 @@ export type SeasonalCampaign = {
   title: string;
   note: string;
   textile: TextileName;
+  /** Campaign photography slot (textile fallback when absent). */
+  media: MediaSlotName;
   accent: string;
   ctaLabel: string;
   ctaHref: string;
@@ -20,6 +23,7 @@ export type SeasonalCampaign = {
 export const campaigns: SeasonalCampaign[] = [
   {
     slug: "sankranti",
+    media: "festivalSankranti",
     name: "Sankranti",
     eyebrow: "The Harvest Festival",
     title: "Colours of the first harvest.",
@@ -31,6 +35,7 @@ export const campaigns: SeasonalCampaign[] = [
   },
   {
     slug: "ugadi",
+    media: "festivalUgadi",
     name: "Ugadi",
     eyebrow: "The New Year",
     title: "A new year, worn beautifully.",
@@ -42,6 +47,7 @@ export const campaigns: SeasonalCampaign[] = [
   },
   {
     slug: "wedding-season",
+    media: "festivalWeddingSeason",
     name: "Wedding Season",
     eyebrow: "Muhurtham Days",
     title: "The season of good dates.",
@@ -53,6 +59,7 @@ export const campaigns: SeasonalCampaign[] = [
   },
   {
     slug: "dasara",
+    media: "festivalDasara",
     name: "Dasara",
     eyebrow: "Nine Nights",
     title: "Nine nights, nine colours.",
@@ -64,6 +71,7 @@ export const campaigns: SeasonalCampaign[] = [
   },
   {
     slug: "diwali",
+    media: "festivalDiwali",
     name: "Diwali",
     eyebrow: "Festival of Lights",
     title: "Silk that carries the lamplight.",
@@ -75,6 +83,7 @@ export const campaigns: SeasonalCampaign[] = [
   },
   {
     slug: "eid",
+    media: "festivalEid",
     name: "Eid",
     eyebrow: "The Celebration",
     title: "Grace for the gathering.",

@@ -23,9 +23,14 @@ export function IntroSequence() {
 
   useEffect(() => {
     const root = document.documentElement;
+    // Presentation mode: ?demo=1 always replays the full intro from the top
+    // (used when pitching live). No visible controls, no production effect.
+    const demoMode = new URLSearchParams(window.location.search).has("demo");
+    if (demoMode) window.scrollTo(0, 0);
+
     let seen = false;
     try {
-      seen = sessionStorage.getItem(SEEN_KEY) === "1";
+      seen = !demoMode && sessionStorage.getItem(SEEN_KEY) === "1";
     } catch {
       /* storage unavailable — treat as unseen */
     }
@@ -55,9 +60,12 @@ export function IntroSequence() {
     const finish = () => {
       if (doneRef.current) return;
       doneRef.current = true;
-      // marked here (not on mount) so a StrictMode remount still plays
+      // marked here (not on mount) so a StrictMode remount still plays;
+      // demo mode never marks, so every ?demo=1 load replays the intro
       try {
-        sessionStorage.setItem(SEEN_KEY, "1");
+        if (!new URLSearchParams(window.location.search).has("demo")) {
+          sessionStorage.setItem(SEEN_KEY, "1");
+        }
       } catch {
         /* ignore */
       }

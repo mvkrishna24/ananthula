@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { TextilePanel } from "@/components/textile/TextilePanel";
+import { MediaSlot } from "@/components/media/MediaSlot";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { stores } from "@/data/stores";
 
@@ -16,12 +16,12 @@ export default function StoresPage() {
     <>
       <section className="on-dark grain relative flex min-h-[62svh] flex-col justify-end overflow-hidden bg-charcoal text-ivory">
         <div className="absolute inset-0">
-          <TextilePanel
-            textile="winePallu"
+          <MediaSlot
+            slot="storeFacade"
             idSuffix="stores-hero"
             className="h-full w-full"
             scrim={0.5}
-            ariaLabel="Wine pattu silk — generative artwork"
+            priority
           />
         </div>
         <div className="relative mx-auto w-full max-w-[1680px] px-5 pb-16 pt-44 sm:px-8 lg:px-12">
@@ -84,17 +84,17 @@ export default function StoresPage() {
 
           <div data-reveal="mask">
             <div className="grid grid-cols-2 gap-4">
-              <TextilePanel
-                textile="arakkuBridal"
+              <MediaSlot
+                slot="storeInterior"
                 idSuffix="sp1"
                 className="aspect-[3/4] w-full"
-                ariaLabel="Bridal arakku silk — generative artwork"
+                sizes="(min-width: 1024px) 24vw, 45vw"
               />
-              <TextilePanel
-                textile="ivoryTissue"
+              <MediaSlot
+                slot="storeCounter"
                 idSuffix="sp2"
                 className="mt-10 aspect-[3/4] w-full"
-                ariaLabel="Ivory tissue silk — generative artwork"
+                sizes="(min-width: 1024px) 24vw, 45vw"
               />
             </div>
             <p className="eyebrow mt-4 !text-[0.56rem] text-muted">
