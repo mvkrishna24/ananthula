@@ -220,7 +220,9 @@ html[data-reveal-ready][data-intro-done] .hero-reveal {
   object-position: var(--media-pos-m, 50% 50%);
 }
 
-@media (min-width: 768px) {
+/* Desktop crop values apply from 1024px — portrait/tablet windows are narrow
+   enough that the mobile framing (subject-centred) is the correct one. */
+@media (min-width: 1024px) {
   .media-photo {
     object-position: var(--media-pos, 50% 50%);
   }

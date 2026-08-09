@@ -37,10 +37,12 @@ export const media = {
     alt: "Editorial portrait — woman in a rich Kanchipuram-style pattu saree with antique gold zari",
     textile: "arakkuBridal",
     aspect: "3:2 landscape · ≥2400×1600 · subject right-of-centre, negative space left",
-    // subject right-of-centre: keep her in frame while the wordmark owns the left
-    position: "68% 30%",
-    // mobile shows a narrow slice: bias further right and higher for the face
-    mobilePosition: "74% 22%",
+    // Measured against the delivered 16:9 frame (face ≈61% x, bright doorway
+    // at the far right): anchoring the window left crops the doorway and
+    // pushes the subject clear of the wordmark's right edge.
+    position: "0% 30%",
+    // <1024px shows a narrow slice — centre it on her face and the pallu border
+    mobilePosition: "63% 30%",
   },
 
   /* ---- 02 · HERITAGE ARCHIVE ------------------------------------ */
