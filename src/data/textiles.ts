@@ -2,7 +2,7 @@
  * The generative textile library.
  *
  * Every visual surface in the demo is drawn from these specs — layered silk
- * gradients, woven grain and traditional Kanchipuram motifs (temple reku,
+ * gradients, woven grain and South Indian textile-inspired geometry (temple-style reku,
  * kattam checks, pallu stripes, rudraksha diamonds) rendered as inline SVG.
  *
  * When client photography arrives, each slot in `media.ts` swaps from a
@@ -24,7 +24,7 @@ export type TextileSpec = {
   silk: [string, string, string];
   /** Zari (metallic thread) colour for motifs and weave. */
   zari: string;
-  /** Traditional motif drawn on the border band. */
+  /** Heritage-inspired motif drawn on the border band. */
   motif: MotifKind;
   /** Which edge carries the border band. */
   border?: "bottom" | "top" | "left" | "right";
@@ -35,7 +35,7 @@ export type TextileSpec = {
 };
 
 export const textiles = {
-  /** Deep arakku red — the classic bridal Kanchipuram. */
+  /** Deep arakku red — Kanchipuram-inspired bridal palette. */
   arakkuBridal: {
     id: "arakku",
     silk: ["#2e0d16", "#571b2a", "#7d2c3c"],

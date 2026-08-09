@@ -7,7 +7,7 @@ import { textiles, type TextileName, type TextileSpec } from "@/data/textiles";
  * Draws a silk surface entirely in CSS gradients + inline SVG:
  *   1. silk base with a directional sheen and drape folds
  *   2. woven warp/weft thread grid
- *   3. a traditional border band (temple reku / kattam / pallu stripes /
+ *   3. a heritage-inspired border band (temple-style reku / kattam-style checks / pallu-style stripes /
  *      rudraksha / paisley buttas) in zari
  *   4. film grain
  *

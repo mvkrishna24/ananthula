@@ -8,7 +8,11 @@ import {
   type ReactNode,
 } from "react";
 import { TextilePanel } from "@/components/textile/TextilePanel";
-import { media, type MediaSlotName } from "@/data/media";
+import {
+  media,
+  type MediaSlotName,
+  type MediaSlotSpec,
+} from "@/data/media";
 
 declare global {
   interface Window {
@@ -73,7 +77,7 @@ export function MediaSlot({
   children,
   imageClassName = "",
 }: Props) {
-  const spec = media[slot];
+  const spec: MediaSlotSpec = media[slot];
   const available = useMediaAvailable(spec.src);
   const [loaded, setLoaded] = useState(false);
   const [errored, setErrored] = useState(false);
@@ -93,7 +97,10 @@ export function MediaSlot({
         />
       </div>
 
-      {/* 2 — the photograph (mounted only once the file is known to exist) */}
+      {/* 2 — the photograph (mounted only once the file is known to exist).
+             Per-asset art direction comes from the manifest: --media-pos
+             (desktop) and --media-pos-m (mobile) drive object-position via
+             the .media-photo rule in globals.css. */}
       {showPhoto && (
         <Image
           src={spec.src}
@@ -101,9 +108,15 @@ export function MediaSlot({
           fill
           sizes={sizes}
           priority={priority}
-          className={`object-cover transition-opacity duration-700 ease-[var(--ease-editorial)] ${
+          className={`media-photo object-cover transition-opacity duration-700 ease-[var(--ease-editorial)] ${
             photoReady ? "opacity-100" : "opacity-0"
           } ${imageClassName}`}
+          style={
+            {
+              "--media-pos": spec.position ?? "50% 50%",
+              "--media-pos-m": spec.mobilePosition ?? spec.position ?? "50% 50%",
+            } as CSSProperties
+          }
           onLoad={() => setLoaded(true)}
           onError={() => setErrored(true)}
         />

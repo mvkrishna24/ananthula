@@ -20,15 +20,27 @@ export type MediaSlotSpec = {
   textile: TextileName;
   /** Recommended aspect / export size for the asset pass. */
   aspect: string;
+  /**
+   * Per-asset art direction: CSS object-position for the photograph
+   * (desktop ≥768px). Tune here after inspecting the real image —
+   * a global "center" for every photo is not acceptable.
+   */
+  position?: string;
+  /** Mobile (<768px) object-position override, for a different crop. */
+  mobilePosition?: string;
 };
 
 export const media = {
   /* ---- 01 · HERO ------------------------------------------------ */
   heroMain: {
     src: "/images/hero/hero-pattu-woman.webp",
-    alt: "Editorial portrait — woman in a rich Kanchipuram pattu saree with antique gold zari",
+    alt: "Editorial portrait — woman in a rich Kanchipuram-style pattu saree with antique gold zari",
     textile: "arakkuBridal",
     aspect: "3:2 landscape · ≥2400×1600 · subject right-of-centre, negative space left",
+    // subject right-of-centre: keep her in frame while the wordmark owns the left
+    position: "68% 30%",
+    // mobile shows a narrow slice: bias further right and higher for the face
+    mobilePosition: "74% 22%",
   },
 
   /* ---- 02 · HERITAGE ARCHIVE ------------------------------------ */
@@ -63,6 +75,7 @@ export const media = {
     alt: "Kanchipuram pattu saree — macro of temple border and zari",
     textile: "arakkuBridal",
     aspect: "3:4 portrait · ≥1200×1600 · macro fabric or draped look",
+    position: "50% 40%",  // textile-dominant: border/zari mid-frame
   },
   pattuPure: {
     src: "/images/pattu/pattu-pure.webp",
@@ -93,6 +106,7 @@ export const media = {
     alt: "Extreme macro of Kanchipuram silk weave and zari thread",
     textile: "winePallu",
     aspect: "16:9 wide · ≥2400×1350 · collection-page hero",
+    position: "50% 50%",  // macro weave: centre; re-aim at the border after shoot
   },
 
   /* ---- 04–06 · FAMILY WORLDS ------------------------------------ */
@@ -101,18 +115,23 @@ export const media = {
     alt: "Editorial portrait — woman in festive South Indian ethnic wear",
     textile: "onionPink",
     aspect: "3:4 portrait · ≥1400×1867",
+    position: "50% 25%",
+    mobilePosition: "50% 22%",
   },
   menEditorial: {
     src: "/images/men/men-ethnic.webp",
     alt: "Editorial portrait — man in premium South Indian ethnic wear",
     textile: "inkRawSilk",
     aspect: "3:4 portrait · ≥1400×1867",
+    position: "50% 25%",
+    mobilePosition: "50% 22%",
   },
   kidsEditorial: {
     src: "/images/kids/kids-festive.webp",
     alt: "Children in festive traditional wear, natural and joyful",
     textile: "sandalRose",
     aspect: "3:4 portrait · ≥1400×1867",
+    position: "50% 30%",  // allow movement; keep faces above centre
   },
 
   /* ---- 07 · WEDDING --------------------------------------------- */
@@ -121,24 +140,31 @@ export const media = {
     alt: "South Indian bride in bridal pattu — silk and jewellery detail",
     textile: "arakkuBridal",
     aspect: "3:4 portrait · ≥1400×1867",
+    position: "50% 24%",  // face upper third; jewellery and silk below
+    mobilePosition: "50% 22%",
   },
   weddingGroom: {
     src: "/images/wedding/wedding-groom.webp",
     alt: "South Indian groom in wedding silk and ethnic wear",
     textile: "inkRawSilk",
     aspect: "3:4 portrait · ≥1400×1867",
+    position: "50% 24%",
+    mobilePosition: "50% 22%",
   },
   weddingFamily: {
     src: "/images/wedding/family-wedding.webp",
     alt: "Family gathered in coordinated wedding wear",
     textile: "ivoryTissue",
     aspect: "3:4 portrait · ≥1400×1867",
+    position: "50% 32%",  // group centred; keep heads clear of the top crop
   },
   weddingCouple: {
     src: "/images/wedding/wedding-couple.webp",
     alt: "Bride and groom together in traditional wedding attire",
     textile: "arakkuBridal",
     aspect: "16:9 wide · ≥2400×1350 · wedding-page hero",
+    position: "50% 28%",
+    mobilePosition: "55% 25%",
   },
 
   /* ---- 08 · FESTIVALS (one per campaign) ------------------------ */
@@ -217,6 +243,7 @@ export const media = {
     alt: "Inside the JPN Road showroom — saree counters and browsing",
     textile: "winePallu",
     aspect: "3:4 portrait · ≥1200×1600",
+    position: "50% 45%",  // shelf depth mid-frame, warm light above
   },
   storeCounter: {
     src: "/images/stores/store-counter.webp",
@@ -229,6 +256,7 @@ export const media = {
     alt: "Ananthula Kedari Family Shopping Mall facade on JPN Road",
     textile: "winePallu",
     aspect: "16:9 wide · ≥2400×1350 · stores-page hero",
+    position: "50% 40%",
   },
 
   /* ---- 11 · SOCIAL REELS ---------------------------------------- */
@@ -269,6 +297,7 @@ export const media = {
     alt: "Handloom detail — warp threads and shuttle",
     textile: "agedLoom",
     aspect: "16:9 wide · ≥2400×1350 · legacy-page hero",
+    position: "50% 50%",
   },
 } as const satisfies Record<string, MediaSlotSpec>;
 

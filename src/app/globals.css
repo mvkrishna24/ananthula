@@ -213,6 +213,20 @@ html[data-reveal-ready][data-intro-done] .hero-reveal {
 }
 
 /* ------------------------------------------------------------------ */
+/*  Photograph art direction — object-position per asset, per breakpoint */
+/* ------------------------------------------------------------------ */
+
+.media-photo {
+  object-position: var(--media-pos-m, 50% 50%);
+}
+
+@media (min-width: 768px) {
+  .media-photo {
+    object-position: var(--media-pos, 50% 50%);
+  }
+}
+
+/* ------------------------------------------------------------------ */
 /*  Grain — a single reusable film-grain overlay                       */
 /* ------------------------------------------------------------------ */
 

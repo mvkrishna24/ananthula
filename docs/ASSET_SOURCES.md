@@ -8,8 +8,10 @@ render time by `src/components/textile/TextilePanel.tsx` from the specs in
 
 - silk base: layered CSS gradients (sheen, drape folds, corner light)
 - weave: inline SVG warp/weft thread pattern
-- borders: traditional Kanchipuram motifs — temple *reku* triangles,
-  *kattam* checks, pallu zari stripes, rudraksha diamonds, paisley buttas
+- borders: South Indian textile-inspired geometry — temple-style *reku*
+  triangles, *kattam*-style checks, pallu-style zari stripes, rudraksha
+  diamonds, paisley buttas (heritage-inspired; not verified reproductions
+  of any specific historical weave)
 - grain: one shared data-URI SVG turbulence tile
 
 Consequences:
