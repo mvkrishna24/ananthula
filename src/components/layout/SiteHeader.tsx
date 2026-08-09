@@ -81,21 +81,21 @@ export function SiteHeader() {
             <span className="font-display text-[1.05rem] tracking-[0.14em] uppercase sm:text-[1.2rem]">
               {brand.name}
             </span>
-            <span className="eyebrow mt-1 !text-[0.56rem] opacity-70">
+            <span className="eyebrow mt-1 !text-[0.56rem] opacity-60">
               Since {brand.since} · {brand.city}
             </span>
           </Link>
 
           <nav
             aria-label="Primary"
-            className="hidden items-center gap-7 xl:flex"
+            className="hidden items-center gap-9 xl:flex"
           >
             {primaryNav.slice(0, 6).map((item) =>
               item.children ? (
                 <div key={item.label} className="group/dd relative flex">
                   <Link
                     href={item.href}
-                    className="link-underline !pb-1 !text-[0.68rem]"
+                    className="link-underline nav-quiet !pb-1 !text-[0.66rem] !tracking-[0.22em] opacity-90 transition-opacity hover:opacity-100"
                     aria-haspopup="true"
                   >
                     {item.label}
@@ -119,7 +119,7 @@ export function SiteHeader() {
                 <Link
                   key={item.href + item.label}
                   href={item.href}
-                  className="link-underline !pb-1 !text-[0.68rem]"
+                  className="link-underline nav-quiet !pb-1 !text-[0.66rem] !tracking-[0.22em] opacity-90 transition-opacity hover:opacity-100"
                 >
                   {item.label}
                 </Link>
@@ -132,7 +132,7 @@ export function SiteHeader() {
               href={brand.whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="link-underline hidden !pb-1 !text-[0.68rem] md:inline-flex"
+              className="link-underline nav-quiet hidden !pb-1 !text-[0.66rem] !tracking-[0.22em] opacity-90 transition-opacity hover:opacity-100 md:inline-flex"
             >
               WhatsApp
             </a>

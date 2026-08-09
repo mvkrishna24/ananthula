@@ -367,3 +367,50 @@ html[data-reveal-ready][data-intro-done] .hero-reveal {
 .link-underline:focus-visible .arrow {
   transform: translateX(0.35rem);
 }
+
+/* Header variant: underline fully rests until hover/focus so the bar
+   almost disappears into the hero. */
+.nav-quiet::after {
+  transform: scaleX(0);
+  opacity: 0;
+}
+
+.nav-quiet:hover::after,
+.nav-quiet:focus-visible::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+/* Hero primary CTA — a fashion-house invitation, not a filled button. */
+.btn-hero {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 1rem 2.1rem;
+  color: var(--ak-ivory);
+  border: 1px solid rgba(195, 167, 109, 0.5);
+  transition:
+    border-color 0.4s var(--ease-editorial),
+    background-color 0.4s var(--ease-editorial);
+}
+
+.btn-hero:hover,
+.btn-hero:focus-visible {
+  border-color: var(--ak-zari-bright);
+  background: rgba(195, 167, 109, 0.09);
+}
+
+.btn-hero .arrow {
+  transition: transform 0.4s var(--ease-editorial);
+}
+
+.btn-hero:hover .arrow,
+.btn-hero:focus-visible .arrow {
+  transform: translateX(0.3rem);
+}
