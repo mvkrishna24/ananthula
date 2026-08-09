@@ -1,0 +1,369 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ */
+/*  ANANTHULA KEDARI — design tokens                                   */
+/*  The interface stays quiet; the textiles provide the colour.        */
+/* ------------------------------------------------------------------ */
+
+:root {
+  --ak-ivory: #f4efe6;
+  --ak-rice: #faf7f0;
+  --ak-sand: #d8cbb8;
+  --ak-ink: #11110f;
+  --ak-charcoal: #1a1916;
+  --ak-wine: #4a1722;
+  --ak-wine-deep: #35101a;
+  --ak-zari: #a58a57;
+  --ak-zari-bright: #c3a76d;
+  --ak-muted: #777168;
+  --ak-line: rgba(17, 17, 15, 0.16);
+  --ak-line-light: rgba(244, 239, 230, 0.18);
+
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-fabric: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+@theme inline {
+  --color-ivory: var(--ak-ivory);
+  --color-rice: var(--ak-rice);
+  --color-sand: var(--ak-sand);
+  --color-ink: var(--ak-ink);
+  --color-charcoal: var(--ak-charcoal);
+  --color-wine: var(--ak-wine);
+  --color-wine-deep: var(--ak-wine-deep);
+  --color-zari: var(--ak-zari);
+  --color-zari-bright: var(--ak-zari-bright);
+  --color-muted: var(--ak-muted);
+
+  --font-serif: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-inter), "Inter", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+body {
+  background: var(--ak-rice);
+  color: var(--ak-ink);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--ak-wine);
+  color: var(--ak-ivory);
+}
+
+/* Focus states tuned to the art direction */
+:focus-visible {
+  outline: 1.5px solid var(--ak-zari);
+  outline-offset: 3px;
+}
+
+.on-dark :focus-visible,
+[data-theme="dark"] :focus-visible {
+  outline-color: var(--ak-zari-bright);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Typography utilities                                               */
+/* ------------------------------------------------------------------ */
+
+.font-display {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.04;
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.measure {
+  max-width: 34em;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Reveal system (progressive enhancement: visible by default;        */
+/*  JS adds data-reveal-ready to arm the animations)                   */
+/* ------------------------------------------------------------------ */
+
+html[data-reveal-ready] [data-reveal] {
+  opacity: 0;
+  transform: translateY(2.2rem);
+  transition:
+    opacity 0.9s var(--ease-editorial),
+    transform 0.9s var(--ease-editorial);
+  transition-delay: var(--reveal-delay, 0s);
+}
+
+html[data-reveal-ready] [data-reveal="mask"] {
+  transform: none;
+  clip-path: inset(0 0 100% 0);
+  transition:
+    opacity 0.7s var(--ease-editorial),
+    clip-path 1s var(--ease-fabric);
+}
+
+html[data-reveal-ready] [data-reveal="line"] {
+  opacity: 1;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 1.2s var(--ease-fabric);
+}
+
+html[data-reveal-ready] [data-reveal].is-revealed {
+  opacity: 1;
+  transform: none;
+  clip-path: inset(0 0 0% 0);
+}
+
+html[data-reveal-ready] [data-reveal="line"].is-revealed {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  html[data-reveal-ready] [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    transition: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.15s !important;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Hero choreography — waits for the 1951 intro to hand over          */
+/* ------------------------------------------------------------------ */
+
+html[data-reveal-ready]:not([data-intro-done]) .hero-reveal {
+  opacity: 0;
+  transform: translateY(1.6rem);
+}
+
+html[data-reveal-ready][data-intro-done] .hero-reveal {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 1s var(--ease-editorial),
+    transform 1s var(--ease-editorial);
+  transition-delay: var(--hd, 0s);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-drift {
+    animation: hero-drift 14s var(--ease-editorial) both;
+  }
+  @keyframes hero-drift {
+    from {
+      transform: scale(1.07);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+  .scroll-cue {
+    animation: scroll-cue 2.6s var(--ease-fabric) infinite;
+  }
+  @keyframes scroll-cue {
+    0% {
+      transform: translateY(-30%);
+      opacity: 0;
+    }
+    35% {
+      opacity: 1;
+    }
+    70%,
+    100% {
+      transform: translateY(30%);
+      opacity: 0;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Photograph art direction — object-position per asset, per breakpoint */
+/* ------------------------------------------------------------------ */
+
+.media-photo {
+  object-position: var(--media-pos-m, 50% 50%);
+}
+
+/* Desktop crop values apply from 1024px — portrait/tablet windows are narrow
+   enough that the mobile framing (subject-centred) is the correct one. */
+@media (min-width: 1024px) {
+  .media-photo {
+    object-position: var(--media-pos, 50% 50%);
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Grain — a single reusable film-grain overlay                       */
+/* ------------------------------------------------------------------ */
+
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+}
+
+/* Campaign stage crossfade (keyed remount per season) */
+.campaign-fade {
+  animation: campaign-fade 0.8s var(--ease-editorial) both;
+}
+
+@keyframes campaign-fade {
+  from {
+    opacity: 0;
+    transform: scale(1.015);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Editorial rail: native horizontal scroll with snap                 */
+/* ------------------------------------------------------------------ */
+
+.rail {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.rail::-webkit-scrollbar {
+  display: none;
+}
+
+.rail > * {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Buttons / links                                                    */
+/* ------------------------------------------------------------------ */
+
+.btn-editorial {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.95rem 1.9rem;
+  border: 1px solid currentColor;
+  transition:
+    background-color 0.3s var(--ease-editorial),
+    color 0.3s var(--ease-editorial),
+    border-color 0.3s var(--ease-editorial);
+}
+
+.btn-editorial:hover {
+  background: var(--ak-ink);
+  border-color: var(--ak-ink);
+  color: var(--ak-ivory);
+}
+
+.on-dark .btn-editorial:hover {
+  background: var(--ak-ivory);
+  border-color: var(--ak-ivory);
+  color: var(--ak-ink);
+}
+
+.btn-editorial--solid {
+  background: var(--ak-ink);
+  border-color: var(--ak-ink);
+  color: var(--ak-ivory);
+}
+
+.btn-editorial--solid:hover {
+  background: var(--ak-wine);
+  border-color: var(--ak-wine);
+  color: var(--ak-ivory);
+}
+
+.link-underline {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding-bottom: 0.35rem;
+}
+
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0.35);
+  transform-origin: left center;
+  opacity: 0.5;
+  transition:
+    transform 0.45s var(--ease-editorial),
+    opacity 0.45s var(--ease-editorial);
+}
+
+.link-underline:hover::after,
+.link-underline:focus-visible::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+.link-underline .arrow {
+  transition: transform 0.45s var(--ease-editorial);
+}
+
+.link-underline:hover .arrow,
+.link-underline:focus-visible .arrow {
+  transform: translateX(0.35rem);
+}
