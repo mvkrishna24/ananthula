@@ -92,7 +92,7 @@ export function SiteHeader() {
           >
             {primaryNav.slice(0, 6).map((item) =>
               item.children ? (
-                <div key={item.label} className="group/dd relative">
+                <div key={item.label} className="group/dd relative flex">
                   <Link
                     href={item.href}
                     className="link-underline !pb-1 !text-[0.68rem]"

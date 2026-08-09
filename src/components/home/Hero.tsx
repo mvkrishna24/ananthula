@@ -55,7 +55,7 @@ export function Hero() {
         </p>
 
         <p
-          className="hero-reveal eyebrow mt-7 !tracking-[0.3em] text-ivory/75"
+          className="hero-reveal eyebrow mt-7 !text-[0.62rem] !tracking-[0.22em] text-ivory/75 sm:!text-[0.72rem] sm:!tracking-[0.3em]"
           style={{ "--hd": "0.55s" } as React.CSSProperties}
         >
           Pattu · Wedding · Women · Men · Kids
