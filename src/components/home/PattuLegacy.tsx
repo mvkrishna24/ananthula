@@ -1,143 +1,221 @@
-"use client";
-
 import Link from "next/link";
-import { useCallback, useRef } from "react";
+import type { CSSProperties } from "react";
 import { MediaSlot } from "@/components/media/MediaSlot";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import { EditorialLink } from "@/components/ui/EditorialLink";
 import { pattuChapters } from "@/data/collections";
 
 /**
  * SECTION 03 — The Pattu Legacy.
- * A dark silk chapter with a native horizontal rail (scroll-snap, no
- * hijacking): each weave is a large tactile panel, numbered like plates in a
- * textile archive. Arrow buttons give keyboard/desktop control.
+ *
+ * One continuous editorial chapter — a material study in four beats:
+ *   01 · THE SILK      full-bleed macro, weave and zari as truth
+ *   02 · THE DRAPE     how pattu lives on a person + the house index
+ *   03 · THE CRAFT     a second crop of the SAME macro (border region)
+ *   04 · THE OCCASION  the bridge toward weddings and family
+ *
+ * Two locked campaign assets carry the whole chapter; the five weave
+ * categories live on as a quiet archive index, not cards.
  */
 export function PattuLegacy() {
-  const railRef = useRef<HTMLDivElement>(null);
-
-  const scrollBy = useCallback((dir: 1 | -1) => {
-    const rail = railRef.current;
-    if (!rail) return;
-    const panel = rail.querySelector<HTMLElement>("[data-panel]");
-    const step = panel ? panel.offsetWidth + 24 : rail.clientWidth * 0.7;
-    rail.scrollBy({ left: dir * step, behavior: "smooth" });
-  }, []);
-
   return (
     <section
       aria-labelledby="pattu-heading"
-      className="on-dark grain relative overflow-hidden bg-charcoal py-24 text-ivory md:py-36"
+      className="on-dark grain relative overflow-hidden bg-charcoal text-ivory"
     >
-      {/* the thread arrives from the timeline and becomes a saree border */}
+      {/* the thread arrives from the timeline */}
       <div
         aria-hidden
         className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-zari/70 to-transparent"
       />
 
-      <div className="mx-auto max-w-[1680px] px-5 sm:px-8 lg:px-12">
-        <div className="flex flex-wrap items-end justify-between gap-8">
-          <div>
-            <Eyebrow className="text-zari-bright">The House of Silk</Eyebrow>
-            <h2
-              id="pattu-heading"
-              data-reveal
-              className="font-display mt-5 text-[clamp(2.6rem,6vw,6rem)]"
-            >
-              The Pattu <em className="text-zari-bright">Legacy.</em>
-            </h2>
-            <p data-reveal className="measure mt-5 text-ivory/65">
-              Silk for ceremonies, celebrations and memories that outlive the
-              moment.
-            </p>
-          </div>
-          <div
-            data-reveal
-            className="hidden items-center gap-3 md:flex"
-            role="group"
-            aria-label="Browse pattu chapters"
-          >
-            <button
-              type="button"
-              onClick={() => scrollBy(-1)}
-              aria-label="Previous weave"
-              className="flex h-12 w-12 items-center justify-center border border-ivory/25 transition-colors hover:border-zari-bright hover:text-zari-bright"
-            >
-              ←
-            </button>
-            <button
-              type="button"
-              onClick={() => scrollBy(1)}
-              aria-label="Next weave"
-              className="flex h-12 w-12 items-center justify-center border border-ivory/25 transition-colors hover:border-zari-bright hover:text-zari-bright"
-            >
-              →
-            </button>
-          </div>
-        </div>
+      {/* chapter opening */}
+      <div className="mx-auto max-w-[1680px] px-5 pt-24 sm:px-8 md:pt-32 lg:px-12">
+        <Eyebrow className="text-zari-bright">The House of Silk</Eyebrow>
+        <h2
+          id="pattu-heading"
+          data-reveal
+          className="font-display mt-5 max-w-[14em] text-[clamp(2rem,4vw,3.8rem)]"
+        >
+          The Pattu <em className="text-zari-bright">Legacy.</em>
+        </h2>
       </div>
 
+      {/* ---- 01 · THE SILK — full-bleed material truth ---------------- */}
       <div
-        ref={railRef}
-        className="rail mt-14 gap-6 px-5 pb-4 scroll-pl-5 sm:px-8 sm:scroll-pl-8 md:mt-20 lg:px-12 lg:scroll-pl-12"
-        aria-label="Pattu collection chapters"
+        data-reveal="mask"
+        className="relative mt-10 h-[68svh] min-h-[420px] w-full md:mt-14 md:h-[78svh] md:min-h-[560px]"
       >
-        {pattuChapters.map((chapter, i) => (
-          <article
-            key={chapter.slug}
-            data-panel
-            className="group w-[82vw] max-w-[520px] sm:w-[60vw] lg:w-[44vw] xl:w-[560px]"
-          >
-            <Link href={chapter.href} className="block">
-              <div className="relative overflow-hidden">
-                <MediaSlot
-                  slot={chapter.media}
-                  idSuffix={`p${i}`}
-                  className="aspect-[3/4] w-full transition-transform duration-[1200ms] ease-[var(--ease-editorial)] group-hover:scale-[1.03]"
-                  sizes="(min-width: 1280px) 560px, (min-width: 1024px) 44vw, (min-width: 640px) 60vw, 82vw"
-                />
-                {/* restrained light sweep on hover */}
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-gradient-to-r from-transparent via-white/[0.07] to-transparent transition-transform duration-[1100ms] ease-[var(--ease-fabric)] group-hover:translate-x-[120%]"
-                />
-                <p className="font-display absolute right-4 top-4 text-5xl text-ivory/35">
-                  {String(i + 1).padStart(2, "0")}
-                </p>
-              </div>
-              <div className="mt-5 flex items-baseline justify-between gap-4">
-                <h3 className="font-display text-2xl md:text-3xl">
-                  {chapter.title}
-                </h3>
-                <span className="eyebrow !text-[0.58rem] text-zari-bright/80">
-                  {chapter.eyebrow}
-                </span>
-              </div>
-              <p className="mt-2 max-w-[30em] text-[0.92rem] leading-relaxed text-ivory/55">
-                {chapter.description}
-              </p>
-            </Link>
-          </article>
-        ))}
-        {/* end card */}
-        <div className="flex w-[70vw] max-w-[420px] items-center justify-center border border-ivory/12">
-          <div className="p-10 text-center">
-            <p className="font-display text-3xl">
-              Every weave, <em className="text-zari-bright">in store.</em>
-            </p>
-            <EditorialLink
-              href="/collections/pattu"
-              className="mt-6 text-zari-bright"
+        <MediaSlot
+          slot="pattuMacro"
+          idSuffix="silk"
+          className="h-full w-full"
+          sizes="100vw"
+        />
+        {/* floor + left legibility, protecting the weave elsewhere */}
+        <div
+          aria-hidden
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to top, rgba(10,8,7,0.55), rgba(10,8,7,0) 42%), linear-gradient(to right, rgba(10,8,7,0.3), rgba(10,8,7,0) 40%)",
+          }}
+        />
+        <div className="absolute inset-0 flex flex-col justify-end">
+          <div className="mx-auto w-full max-w-[1680px] px-5 pb-10 sm:px-8 md:pb-14 lg:px-12">
+            <p
+              data-reveal
+              className="eyebrow !text-[0.6rem] !tracking-[0.3em] text-zari-bright/90"
             >
-              Enter the Pattu World
-            </EditorialLink>
+              01 · The Silk
+            </p>
+            <p
+              aria-hidden
+              data-reveal
+              className="font-display mt-3 text-[clamp(3.2rem,8.6vw,7.8rem)] uppercase leading-none tracking-[0.04em]"
+              style={{ "--reveal-delay": "0.12s" } as CSSProperties}
+            >
+              Pattu
+            </p>
+            <p
+              data-reveal
+              className="font-display mt-3 text-[clamp(1.1rem,1.9vw,1.65rem)] italic text-ivory/85"
+              style={{ "--reveal-delay": "0.24s" } as CSSProperties}
+            >
+              Silk with weight.{" "}
+              <span className="text-zari-bright">Zari with memory.</span>
+            </p>
           </div>
         </div>
       </div>
 
-      <p className="eyebrow mt-8 px-5 !text-[0.6rem] text-ivory/40 sm:px-8 md:hidden lg:px-12">
-        Swipe to browse →
-      </p>
+      {/* ---- 02 · THE DRAPE — editorial split + house index ----------- */}
+      <div className="mx-auto grid max-w-[1680px] gap-10 px-5 py-20 sm:px-8 md:py-28 lg:grid-cols-[54fr_46fr] lg:gap-16 lg:px-12">
+        <figure data-reveal="mask" className="relative">
+          <MediaSlot
+            slot="pattuKanchipuram"
+            className="aspect-[4/5] w-full sm:aspect-[3/4] lg:h-full lg:min-h-[640px]"
+            sizes="(min-width: 1024px) 54vw, 92vw"
+          />
+        </figure>
+
+        <div className="flex flex-col justify-center">
+          <Eyebrow className="text-zari-bright" rule={false}>
+            02 · The Drape
+          </Eyebrow>
+          <h3
+            data-reveal
+            className="font-display mt-4 max-w-[13em] text-[clamp(1.8rem,3vw,2.9rem)] leading-[1.12]"
+          >
+            A drape carried from one generation{" "}
+            <em className="text-zari-bright">to the next.</em>
+          </h3>
+          <p
+            data-reveal
+            className="mt-4 max-w-[34em] text-[0.95rem] leading-relaxed text-ivory/60"
+          >
+            Weight in the pleats. A border that follows every fold. This is how
+            pattu lives — on people, at ceremonies, in photographs kept for
+            decades.
+          </p>
+
+          {/* the house index — archive rows, not cards */}
+          <ol data-reveal className="mt-10 border-t border-ivory/12">
+            {pattuChapters.map((chapter, i) => (
+              <li key={chapter.slug} className="border-b border-ivory/12">
+                <Link
+                  href={chapter.href}
+                  className="group flex min-h-[52px] items-baseline gap-5 py-4 transition-colors duration-300 hover:text-zari-bright focus-visible:text-zari-bright"
+                >
+                  <span className="eyebrow !text-[0.6rem] text-zari-bright/70">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="font-display flex-1 text-xl md:text-2xl">
+                    {chapter.title}
+                  </span>
+                  <span className="eyebrow hidden !text-[0.55rem] text-ivory/40 sm:block">
+                    {chapter.eyebrow.split("· ")[1] ?? ""}
+                  </span>
+                  <span
+                    aria-hidden
+                    className="transition-transform duration-500 ease-[var(--ease-editorial)] group-hover:translate-x-2"
+                  >
+                    →
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+
+      {/* ---- 03 · THE CRAFT — the same macro, re-aimed at the border -- */}
+      <div
+        className="relative hidden h-[38vh] min-h-[300px] w-full md:block"
+        style={{ "--media-pos-override": "62% 78%" } as CSSProperties}
+      >
+        <MediaSlot
+          slot="pattuMacro"
+          idSuffix="craft"
+          className="h-full w-full"
+          sizes="100vw"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to right, rgba(10,8,7,0.62), rgba(10,8,7,0.2) 38%, rgba(10,8,7,0) 55%)",
+          }}
+        />
+        <div className="absolute inset-0 flex flex-col justify-center">
+          <div className="mx-auto w-full max-w-[1680px] px-5 sm:px-8 lg:px-12">
+            <Eyebrow className="text-zari-bright" rule={false}>
+              03 · The Craft
+            </Eyebrow>
+            <p
+              data-reveal
+              className="font-display mt-4 max-w-[13em] text-[clamp(1.5rem,2.4vw,2.2rem)] leading-[1.15]"
+            >
+              A border is not decoration — it is where silk and zari{" "}
+              <em className="text-zari-bright">meet.</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* ---- 04 · THE OCCASION — the bridge ---------------------------- */}
+      <div className="mx-auto max-w-[1200px] px-5 pb-24 pt-20 text-center sm:px-8 md:pb-32 md:pt-28">
+        <p
+          data-reveal
+          className="eyebrow !text-[0.6rem] !tracking-[0.3em] text-zari-bright/80"
+        >
+          04 · The Occasion
+        </p>
+        <p
+          data-reveal
+          className="font-display mx-auto mt-5 max-w-[13em] text-[clamp(2rem,4.2vw,4rem)] leading-[1.08]"
+        >
+          Woven for the days{" "}
+          <em className="text-zari-bright">families remember.</em>
+        </p>
+        <div
+          data-reveal
+          className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-4"
+        >
+          <Link href="/collections/pattu" className="btn-hero">
+            Enter the Pattu World{" "}
+            <span aria-hidden className="arrow">
+              →
+            </span>
+          </Link>
+          <Link
+            href="/collections/wedding"
+            className="link-underline !pb-1.5 text-ivory/80 hover:text-ivory"
+          >
+            Explore Wedding <span aria-hidden className="arrow">→</span>
+          </Link>
+        </div>
+      </div>
     </section>
   );
 }

@@ -216,15 +216,19 @@ html[data-reveal-ready][data-intro-done] .hero-reveal {
 /*  Photograph art direction — object-position per asset, per breakpoint */
 /* ------------------------------------------------------------------ */
 
+/* A wrapper may set --media-pos-override to re-aim the SAME asset for a
+   second compositional moment (e.g. the Pattu craft detail crop) without
+   duplicating files — inherited vars lose to the img's inline defaults,
+   so the override uses its own name. */
 .media-photo {
-  object-position: var(--media-pos-m, 50% 50%);
+  object-position: var(--media-pos-override, var(--media-pos-m, 50% 50%));
 }
 
 /* Desktop crop values apply from 1024px — portrait/tablet windows are narrow
    enough that the mobile framing (subject-centred) is the correct one. */
 @media (min-width: 1024px) {
   .media-photo {
-    object-position: var(--media-pos, 50% 50%);
+    object-position: var(--media-pos-override, var(--media-pos, 50% 50%));
   }
 }
 

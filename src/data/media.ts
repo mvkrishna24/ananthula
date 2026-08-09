@@ -74,10 +74,11 @@ export const media = {
   /* ---- 03 · PATTU CHAPTERS -------------------------------------- */
   pattuKanchipuram: {
     src: "/images/pattu/pattu-kanchipuram.webp",
-    alt: "Kanchipuram pattu saree — macro of temple border and zari",
+    alt: "Arakku pattu saree draped on a woman — pleats, pallu and antique-gold zari border",
     textile: "arakkuBridal",
-    aspect: "3:4 portrait · ≥1200×1600 · macro fabric or draped look",
-    position: "50% 40%",  // textile-dominant: border/zari mid-frame
+    aspect: "3:4 portrait · ≥1200×1600 · drape on body, textile dominant",
+    position: "50% 35%",  // keep the resting hand and waist tension in frame
+    mobilePosition: "50% 30%",
   },
   pattuPure: {
     src: "/images/pattu/pattu-pure.webp",
@@ -105,10 +106,11 @@ export const media = {
   },
   pattuMacro: {
     src: "/images/pattu/kanchi-silk-macro.webp",
-    alt: "Extreme macro of Kanchipuram silk weave and zari thread",
+    alt: "Extreme macro of pattu silk weave and antique-gold zari border",
     textile: "winePallu",
-    aspect: "16:9 wide · ≥2400×1350 · collection-page hero",
-    position: "50% 50%",  // macro weave: centre; re-aim at the border after shoot
+    aspect: "16:9 wide · ≥2400×1350 · homepage Pattu opening + craft detail crop",
+    position: "50% 50%",
+    mobilePosition: "48% 50%",  // narrow slice: centre fold + border transition
   },
 
   /* ---- 04–06 · FAMILY WORLDS ------------------------------------ */

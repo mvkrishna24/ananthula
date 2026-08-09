@@ -24,7 +24,7 @@ export const pattuChapters: Collection[] = [
     description:
       "The saree ceremonies are measured against — heavy silk, temple borders, zari that holds light.",
     textile: "arakkuBridal",
-    href: "/collections/pattu",
+    href: "/collections/pattu#kanchi-kanchipuram-pattu",
     status: "demo",
   },
   {
@@ -35,7 +35,7 @@ export const pattuChapters: Collection[] = [
     description:
       "Pure silk woven for pujas, functions and the days families dress with intention.",
     textile: "kanchiEmerald",
-    href: "/collections/pattu",
+    href: "/collections/pattu#pure-pattu",
     status: "demo",
   },
   {
@@ -46,7 +46,7 @@ export const pattuChapters: Collection[] = [
     description:
       "Chosen once, kept forever. The saree that will be photographed for fifty years.",
     textile: "winePallu",
-    href: "/collections/wedding",
+    href: "/collections/pattu#bridal-pattu",
     status: "demo",
   },
   {
@@ -57,7 +57,7 @@ export const pattuChapters: Collection[] = [
     description:
       "Lighter drapes for receptions, festivals and evenings that ask for ease.",
     textile: "onionPink",
-    href: "/collections/pattu",
+    href: "/collections/pattu#soft-silk",
     status: "demo",
   },
   {
@@ -68,7 +68,7 @@ export const pattuChapters: Collection[] = [
     description:
       "Contemporary weaves and colours for the generation writing its own occasions.",
     textile: "peacockNight",
-    href: "/collections/pattu",
+    href: "/collections/pattu#designer-fancy",
     status: "demo",
   },
 ];
