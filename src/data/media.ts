@@ -158,11 +158,16 @@ export const media = {
   /* ---- 07 · WEDDING --------------------------------------------- */
   weddingBride: {
     src: "/images/wedding/wedding-bride.webp",
-    alt: "South Indian bride in bridal pattu — silk and jewellery detail",
+    alt: "South Indian bride in an arakku pattu saree with antique-gold zari and jasmine",
     textile: "arakkuBridal",
-    aspect: "3:4 portrait · ≥1400×1867",
-    position: "50% 24%",  // face upper third; jewellery and silk below
-    mobilePosition: "50% 22%",
+    aspect: "16:9 wide · 2752×1536 · wedding chapter anchor",
+    // Delivered frame: bride x≈55–92%, pallu border x≈62–88%, and a very dark
+    // left third measuring 10.1:1 worst case against ivory — reserved for the
+    // chapter's typography. The source is already 16:9, so a 16:9 anchor crops
+    // nothing and these values are inert there; they are tuned for the portrait
+    // containers that do crop horizontally (full height is always retained).
+    position: "80% 50%",
+    mobilePosition: "75% 50%",
   },
   weddingGroom: {
     src: "/images/wedding/wedding-groom.webp",
