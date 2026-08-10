@@ -119,12 +119,28 @@ html[data-reveal-ready] [data-reveal] {
   transition-delay: var(--reveal-delay, 0s);
 }
 
+/* The hidden state of a masked reveal is a CSS mask, NOT clip-path.
+   Chromium computes an IntersectionObserver target's intersection from its
+   clipped visual rect, so a clip-path-hidden element reports ratio 0 and
+   isIntersecting false — the observer that should reveal it can never fire,
+   and the block stays invisible forever. Measured on this page: ratio 0 with
+   clip-path (at 100% AND at 99.5%, so a sliver does not rescue it) versus
+   0.6997 unclipped. A mask hides at paint time like opacity, leaving the
+   intersection geometry intact: same element observed, same class toggled,
+   same top-down uncover, ratio 0.6997. */
 html[data-reveal-ready] [data-reveal="mask"] {
   transform: none;
-  clip-path: inset(0 0 100% 0);
+  -webkit-mask-image: linear-gradient(#000, #000);
+  mask-image: linear-gradient(#000, #000);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  /* zero-height mask anchored top-left — grows downward, as inset(0 0 100%→0) did */
+  -webkit-mask-size: 100% 0%;
+  mask-size: 100% 0%;
   transition:
     opacity 0.7s var(--ease-editorial),
-    clip-path 1s var(--ease-fabric);
+    -webkit-mask-size 1s var(--ease-fabric),
+    mask-size 1s var(--ease-fabric);
 }
 
 html[data-reveal-ready] [data-reveal="line"] {
@@ -140,6 +156,12 @@ html[data-reveal-ready] [data-reveal].is-revealed {
   clip-path: inset(0 0 0% 0);
 }
 
+/* Must follow the shared .is-revealed rule — equal specificity, source order wins. */
+html[data-reveal-ready] [data-reveal="mask"].is-revealed {
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
 html[data-reveal-ready] [data-reveal="line"].is-revealed {
   transform: scaleX(1);
 }
@@ -152,6 +174,8 @@ html[data-reveal-ready] [data-reveal="line"].is-revealed {
     opacity: 1 !important;
     transform: none !important;
     clip-path: none !important;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
     transition: none !important;
   }
   *,
