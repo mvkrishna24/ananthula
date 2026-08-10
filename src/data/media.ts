@@ -22,11 +22,12 @@ export type MediaSlotSpec = {
   aspect: string;
   /**
    * Per-asset art direction: CSS object-position for the photograph
-   * (desktop ≥768px). Tune here after inspecting the real image —
-   * a global "center" for every photo is not acceptable.
+   * (desktop ≥1024px — see the .media-photo media query in globals.css).
+   * Tune here after inspecting the real image — a global "center" for
+   * every photo is not acceptable.
    */
   position?: string;
-  /** Mobile (<768px) object-position override, for a different crop. */
+  /** Mobile (<1024px) object-position override, for a different crop. */
   mobilePosition?: string;
 };
 
@@ -114,6 +115,22 @@ export const media = {
   },
 
   /* ---- 04–06 · FAMILY WORLDS ------------------------------------ */
+  familyCelebration: {
+    src: "/images/family/family-celebration.webp",
+    alt: "Three-generation family in festive South Indian clothing gathered around a child",
+    textile: "turmericFestive",
+    aspect: "16:9 wide · 2752×1536 · homepage family anchor",
+    // Measured against the delivered frame: the family cluster occupies
+    // x≈42–92%, the quiet plaster x≈5–31%. Desktop (≥1024px) renders the
+    // native ratio, so this centre value crops nothing at all.
+    position: "50% 50%",
+    // Below 1024px the frame becomes 3:2 — a landscape crop, never a
+    // portrait one. 72% keeps x≈11–96%: all four people held, the blurred
+    // dark foreground pillar dropped, ~20% of the plaster retained. Measured
+    // against 62%, which left the father only ~6px from the right edge and
+    // made him read as barely included rather than deliberately framed.
+    mobilePosition: "72% 50%",
+  },
   womenEditorial: {
     src: "/images/women/women-festive.webp",
     alt: "Editorial portrait — woman in festive South Indian ethnic wear",
