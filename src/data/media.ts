@@ -185,12 +185,15 @@ export const media = {
   },
   weddingFamily: {
     src: "/images/wedding/wedding-family.webp",
-    alt: "Wedding family gathered in festive silk — three generations together",
+    // Describes the action, not a claim: three women, the pallu being adjusted,
+    // pre-ceremony. No provenance, no "coordinated", and no suggestion that the
+    // people are real members of a real family.
+    alt: "Three generations of women adjusting a bride's pattu saree before a wedding",
     // Landscape-native by art direction, NOT a portrait card. Multiple people,
     // so the frame must keep relationship, hands and garments intact; the beat
     // renders 3:2 at EVERY breakpoint (it never narrows into a tall thumbnail),
     // which makes these values inert at native ratio.
-    aspect: "3:2 landscape · ≥2400×1600 · wedding chapter family beat",
+    aspect: "3:2 landscape · 2400×1600 · wedding chapter family beat",
     textile: "ivoryTissue",
     position: "50% 45%",
     mobilePosition: "50% 45%",
