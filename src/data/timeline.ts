@@ -12,6 +12,11 @@ export type TimelineMoment = {
   title: string;
   body: string;
   media: MediaSlotName;
+  /**
+   * Visible plate caption. Must stay truthful over the silk artwork that
+   * fills the plate today AND over the family photograph that may replace
+   * it — so it names the era, never a photograph that does not exist.
+   */
   archiveLabel: string;
   verified: boolean;
 };
@@ -22,7 +27,7 @@ export const timeline: TimelineMoment[] = [
     title: "The Beginning",
     body: "A Warangal story begins — a trusted destination for sarees and textiles, built one customer at a time.",
     media: "archiveBeginning",
-    archiveLabel: "original store photograph, from the family collection",
+    archiveLabel: "the beginning · Warangal, 1951",
     verified: false,
   },
   {
@@ -30,7 +35,7 @@ export const timeline: TimelineMoment[] = [
     title: "Of Trust",
     body: "Daughters shop where their mothers shopped. Wedding trousseaus, festival wardrobes, first sarees — the store becomes part of the family calendar.",
     media: "archiveGenerations",
-    archiveLabel: "family & founders photograph, to be supplied",
+    archiveLabel: "generations of trust",
     verified: false,
   },
   {
@@ -38,7 +43,7 @@ export const timeline: TimelineMoment[] = [
     title: "Through the Years",
     body: "The city grows around the store — and the store grows with the city, dressing its festivals, functions and weddings.",
     media: "archiveWarangal",
-    archiveLabel: "Warangal street & storefront photograph, to be supplied",
+    archiveLabel: "Warangal through the years",
     verified: false,
   },
   {
@@ -46,7 +51,7 @@ export const timeline: TimelineMoment[] = [
     title: "The Legacy Continues",
     body: "Pattu, wedding, women's, men's and kids' collections under one roof on JPN Road — and a legacy ready for its digital chapter.",
     media: "archiveToday",
-    archiveLabel: "current storefront photograph, to be supplied",
+    archiveLabel: "the house today",
     verified: false,
   },
 ];

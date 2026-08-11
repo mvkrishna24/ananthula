@@ -147,7 +147,7 @@ export function LegacyTimeline() {
                       sizes="(min-width: 768px) 44vw, 92vw"
                     />
                     <figcaption className="eyebrow mt-3 !text-[0.58rem] !tracking-[0.18em] text-muted">
-                      Archive {String(i + 1).padStart(2, "0")} —{" "}
+                      Plate {String(i + 1).padStart(2, "0")} ·{" "}
                       {moment.archiveLabel}
                     </figcaption>
                   </figure>

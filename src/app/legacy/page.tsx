@@ -63,7 +63,7 @@ export default function LegacyPage() {
                     sizes="(min-width: 768px) 54vw, 92vw"
                   />
                   <figcaption className="eyebrow mt-3 !text-[0.58rem] text-muted">
-                    Archive {String(i + 1).padStart(2, "0")} — {moment.archiveLabel}
+                    Plate {String(i + 1).padStart(2, "0")} · {moment.archiveLabel}
                   </figcaption>
                 </figure>
               </li>
@@ -73,9 +73,9 @@ export default function LegacyPage() {
           <div className="mt-24 border-t border-ink/10 pt-14 text-center md:mt-36">
             <p className="eyebrow text-zari">The next chapter</p>
             <p data-reveal className="font-display mx-auto mt-5 max-w-[16em] text-[clamp(1.9rem,4vw,3.6rem)]">
-              The family history above will be completed with the
-              family&rsquo;s own archive — photographs, milestones and the
-              founder&rsquo;s story.
+              The eras above are held in silk for now. The family&rsquo;s own
+              photographs — the store, the founders, the years between — will
+              take their place.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-5">
               <Link href="/stores" className="btn-editorial btn-editorial--solid">

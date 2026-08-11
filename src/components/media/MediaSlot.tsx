@@ -87,13 +87,17 @@ export function MediaSlot({
 
   return (
     <div className={`relative overflow-hidden ${className}`}>
-      {/* 1 — textile fallback / loading ground */}
+      {/* 1 — textile fallback / loading ground.
+             When the photograph is absent, the fallback must NOT announce the
+             photo's alt text — a screen reader would be told about a
+             photograph that does not exist. The artwork describes itself;
+             `spec.alt` renders only on the real <Image>. */}
       <div aria-hidden={photoReady} className="absolute inset-0">
         <TextilePanel
           textile={spec.textile}
           idSuffix={`ms-${slot}${idSuffix}`}
           className="h-full w-full"
-          ariaLabel={photoReady ? undefined : spec.alt}
+          ariaLabel={photoReady ? undefined : "Silk textile artwork"}
         />
       </div>
 
