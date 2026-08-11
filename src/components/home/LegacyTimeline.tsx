@@ -8,10 +8,16 @@ import { EditorialLink } from "@/components/ui/EditorialLink";
 import { timeline } from "@/data/timeline";
 
 /**
- * SECTION 02 — Legacy: 1951 → Today.
- * A vertical zari thread draws itself down the timeline as the visitor
- * scrolls (GSAP scrub); each moment pairs oversized year typography with an
- * archival plate that awaits the family's real photographs.
+ * SECTION 13 — The Warangal Story: the homepage's heritage coda.
+ *
+ * Deliberately the LAST chapter before FinalCTA, not the second screen:
+ * fashion and commerce speak first, then the house closes with the city it
+ * belongs to. A vertical zari thread draws itself down the timeline as the
+ * visitor scrolls (GSAP scrub) and hands into FinalCTA's vertical thread —
+ * one closing movement that ends on "The legacy continues."
+ *
+ * Coda energy, not opener energy: reflective copy, the same era plates, and
+ * a bottom margin trimmed so the final statement arrives as its resolution.
  */
 export function LegacyTimeline() {
   const threadRef = useRef<SVGLineElement>(null);
@@ -49,7 +55,7 @@ export function LegacyTimeline() {
     <section
       ref={sectionRef}
       aria-labelledby="legacy-heading"
-      className="relative bg-rice py-24 md:py-36"
+      className="relative bg-rice pb-10 pt-24 md:pb-14 md:pt-36"
     >
       <div className="mx-auto max-w-[1680px] px-5 sm:px-8 lg:px-12">
         <Eyebrow className="text-wine">A Warangal Story</Eyebrow>
@@ -61,9 +67,9 @@ export function LegacyTimeline() {
           Woven through <em className="text-wine">generations.</em>
         </h2>
         <p data-reveal className="measure mt-6 text-muted">
-          What began as a trusted destination for sarees and textiles has grown
-          alongside the families of Warangal — through weddings, festivals and
-          generations of celebration.
+          A house of silk grows with the people around it. Since 1951, this
+          one has grown with Warangal — its weddings, its festivals, its
+          families.
         </p>
       </div>
 
@@ -157,7 +163,9 @@ export function LegacyTimeline() {
           })}
         </ol>
 
-        <div data-reveal className="mt-16 md:mt-24 md:text-center">
+        {/* centred at every width — the coda funnels into FinalCTA's
+            centred thread and closing statement directly below */}
+        <div data-reveal className="mt-16 text-center md:mt-24">
           <EditorialLink href="/legacy" className="text-wine">
             Read the Full Story
           </EditorialLink>

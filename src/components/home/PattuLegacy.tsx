@@ -22,7 +22,7 @@ export function PattuLegacy() {
       aria-labelledby="pattu-heading"
       className="on-dark grain relative overflow-hidden bg-charcoal text-ivory"
     >
-      {/* the thread arrives from the timeline */}
+      {/* the thread arrives from the hero's woven border band */}
       <div
         aria-hidden
         className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-zari/70 to-transparent"

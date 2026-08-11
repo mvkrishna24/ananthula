@@ -48,7 +48,10 @@ export const timeline: TimelineMoment[] = [
   },
   {
     marker: "Today",
-    title: "The Legacy Continues",
+    // Not "The Legacy Continues" — the section now sits directly above
+    // FinalCTA, whose closing line is exactly that. The coda's last plate
+    // states the fact; FinalCTA delivers the line.
+    title: "A Family Fashion Destination",
     body: "Pattu, wedding, women's, men's and kids' collections under one roof on JPN Road — and a legacy ready for its digital chapter.",
     media: "archiveToday",
     archiveLabel: "the house today",

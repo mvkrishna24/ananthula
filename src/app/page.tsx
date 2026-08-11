@@ -14,16 +14,20 @@ import { SocialReels } from "@/components/home/SocialReels";
 import { FinalCTA } from "@/components/home/FinalCTA";
 
 /**
- * The Digital Weave — one continuous thread from 1951 to today:
- * intro → hero → legacy → pattu → family → wedding → occasion → festival →
- * arrivals → offers → store → trust → social → the legacy continues.
+ * The Digital Weave — the thread runs from silk to city:
+ * intro → hero → pattu → family → wedding → occasion → festival → arrivals →
+ * offers → store → trust → social → the Warangal story → the legacy continues.
+ *
+ * The heritage timeline deliberately closes the page rather than opening it:
+ * fashion and commerce do their work first, then the house signs off with the
+ * city it belongs to. Its scroll-drawn thread hands straight into FinalCTA's
+ * vertical thread — one closing movement, ending on "The legacy continues."
  */
 export default function HomePage() {
   return (
     <>
       <IntroSequence />
       <Hero />
-      <LegacyTimeline />
       <PattuLegacy />
       <FamilyWardrobe />
       <WeddingChapter />
@@ -34,6 +38,7 @@ export default function HomePage() {
       <StoreExperience />
       <TrustSection />
       <SocialReels />
+      <LegacyTimeline />
       <FinalCTA />
     </>
   );
