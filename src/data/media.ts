@@ -171,11 +171,14 @@ export const media = {
   },
   weddingGroom: {
     src: "/images/wedding/wedding-groom.webp",
-    alt: "South Indian groom in wedding silk with a gold-bordered angavastram",
+    // Garment-first and claim-safe: the men's taxonomy is "Kurta · dhoti ·
+    // classic", so the alt names exactly those two garments and no fibre,
+    // weave or provenance. The delivered frame carries no shoulder drape.
+    alt: "South Indian groom in an ivory kurta and traditional dhoti",
     // Portrait-native by art direction, NOT 3:4 — the groom beat is rendered in
     // a 4:5 container at every breakpoint, so at native ratio these values are
     // inert and no crop occurs. They only bite if a future surface re-frames him.
-    aspect: "4:5 portrait · ≥1400×1750 · wedding chapter groom beat",
+    aspect: "4:5 portrait · 1792×2240 · wedding chapter groom beat",
     textile: "inkRawSilk",
     position: "50% 30%",
     mobilePosition: "50% 28%",
