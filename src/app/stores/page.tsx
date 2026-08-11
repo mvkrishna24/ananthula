@@ -77,7 +77,7 @@ export default function StoresPage() {
             <ul data-reveal className="mt-12 grid gap-3 border-t border-ink/10 pt-8 text-[0.95rem] text-muted sm:grid-cols-2">
               <li>· Pattu &amp; saree counters</li>
               <li>· Wedding wardrobe, one roof</li>
-              <li>· Women&rsquo;s, men&rsquo;s &amp; kids&rsquo; floors</li>
+              <li>· Women&rsquo;s, men&rsquo;s &amp; kids&rsquo; wear</li>
               <li>· Festival &amp; season edits</li>
             </ul>
           </div>
@@ -98,8 +98,7 @@ export default function StoresPage() {
               />
             </div>
             <p className="eyebrow mt-4 !text-[0.56rem] text-muted">
-              Storefront &amp; interior photography — to be supplied by the
-              owner
+              Arakku pattu · ivory tissue — silks of the house
             </p>
           </div>
         </div>

@@ -97,8 +97,7 @@ export default async function CollectionPage({
             ))}
           </ul>
           <p className="eyebrow mt-8 !text-[0.58rem] text-muted">
-            Collection previews — full range in store · demo content pending
-            owner confirmation
+            Collection previews — the full range lives in store
           </p>
         </div>
       </section>

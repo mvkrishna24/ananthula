@@ -19,7 +19,7 @@ export function NewArrivals() {
       <div className="mx-auto max-w-[1680px] px-5 sm:px-8 lg:px-12">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <Eyebrow className="text-wine">Just Arrived</Eyebrow>
+            <Eyebrow className="text-wine">The Current Edit</Eyebrow>
             <h2
               id="arrivals-heading"
               data-reveal

@@ -27,8 +27,8 @@ export function StoreExperience() {
           </h2>
           <p data-reveal className="measure mt-5 text-muted">
             Discover pattu, wedding, women&rsquo;s, men&rsquo;s and kids&rsquo;
-            collections in the heart of Warangal — with the counter service
-            this house has been known for since 1951.
+            collections in the heart of Warangal — silk shown by hand, at the
+            counter, the way it should be.
           </p>
 
           <address data-reveal className="mt-8 border-l-2 border-zari pl-5 not-italic">
@@ -88,7 +88,7 @@ export function StoreExperience() {
             />
           </div>
           <p className="eyebrow mt-4 !text-[0.56rem] text-muted">
-            Store photography — to be supplied from the JPN Road showroom
+            Wine pattu · emerald pattu — the counter&rsquo;s first colours
           </p>
         </div>
       </div>

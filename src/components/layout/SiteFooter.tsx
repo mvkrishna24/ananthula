@@ -73,7 +73,9 @@ export function SiteFooter() {
           <p>
             © {new Date().getFullYear()} {brand.fullName}. All rights reserved.
           </p>
-          <p>Concept demonstration — content pending owner confirmation.</p>
+          {/* Deliberate integrity line: the demo must not be mistaken for
+              approved final copy. Detail lives in docs/CONTENT_TO_VERIFY.md. */}
+          <p>A concept demonstration for {brand.name}.</p>
         </div>
       </div>
     </footer>

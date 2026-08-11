@@ -28,7 +28,7 @@ export function TrustSection() {
               {googleRating}
             </span>
             <span className="eyebrow !text-[0.6rem] text-muted">
-              ★ Google rating*
+              ★ Google rating
             </span>
           </p>
         </div>
@@ -53,10 +53,6 @@ export function TrustSection() {
             </li>
           ))}
         </ul>
-        <p className="mt-5 text-[0.72rem] text-muted/80">
-          *Public rating as supplied for this project — verified at
-          presentation time.
-        </p>
       </div>
     </section>
   );

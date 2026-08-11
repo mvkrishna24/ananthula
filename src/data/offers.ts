@@ -28,9 +28,11 @@ export const currentOffer: Offer = {
   eyebrow: "Seasonal Privileges",
   title: "A celebration worth",
   titleEm: "visiting for.",
-  note: "Special festive offers run in store through the season. Ask our team what's current when you visit — or on WhatsApp.",
+  // Routes the question instead of asserting a promotion exists — no offer,
+  // percentage or availability claim until the owner confirms one.
+  note: "For seasonal privileges and current offers, ask our team in store — or on WhatsApp.",
   highlight: "Festive privileges",
-  highlightNote: "In store now · details at the counter",
-  ctaLabel: "View Current Offers In Store",
+  highlightNote: "Ask at the counter · or on WhatsApp",
+  ctaLabel: "Visit the Store",
   ctaHref: "/stores",
 };

@@ -11,9 +11,9 @@ import type { MediaSlotName } from "@/data/media";
 export function SocialReels() {
   const frames: { media: MediaSlotName; label: string }[] = [
     { media: "reel01", label: "Bridal pattu unfolding" },
-    { media: "reel02", label: "Festive edit, this week" },
+    { media: "reel02", label: "The festive edit" },
     { media: "reel03", label: "Wedding-morning silks" },
-    { media: "reel04", label: "New colours at the counter" },
+    { media: "reel04", label: "Colours at the counter" },
     { media: "reel05", label: "Soft silk drape check" },
   ];
 
@@ -26,14 +26,14 @@ export function SocialReels() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
             <Eyebrow className="text-zari-bright">
-              {brand.instagramHandle} — to be verified
+              {brand.instagramHandle}
             </Eyebrow>
             <h2
               id="social-heading"
               data-reveal
               className="font-display mt-5 text-[clamp(2.4rem,5vw,4.8rem)]"
             >
-              From the store, <em className="text-zari-bright">right now.</em>
+              From the store, <em className="text-zari-bright">in colour.</em>
             </h2>
           </div>
         </div>
@@ -43,6 +43,8 @@ export function SocialReels() {
         {frames.map((frame, i) => (
           <figure key={frame.label} className="w-[220px] sm:w-[250px]">
             <div className="relative overflow-hidden">
+              {/* No play affordance until real reels exist — a play button
+                  over artwork promises video the demo cannot deliver. */}
               <MediaSlot
                 slot={frame.media}
                 idSuffix={`sr${i}`}
@@ -50,15 +52,6 @@ export function SocialReels() {
                 scrim={0.25}
                 sizes="250px"
               />
-              {/* play affordance */}
-              <span
-                aria-hidden
-                className="absolute inset-0 flex items-center justify-center"
-              >
-                <span className="flex h-12 w-12 items-center justify-center rounded-full border border-ivory/50 bg-ink/30 pl-0.5 text-sm backdrop-blur-sm">
-                  ▶
-                </span>
-              </span>
             </div>
             <figcaption className="eyebrow mt-3 !text-[0.56rem] text-ivory/60">
               {frame.label}
@@ -67,9 +60,6 @@ export function SocialReels() {
         ))}
       </div>
 
-      <p className="eyebrow mt-8 px-5 !text-[0.58rem] text-ivory/40 sm:px-8 lg:px-12">
-        Reel frames — replaced by the store&rsquo;s own videos before launch
-      </p>
     </section>
   );
 }

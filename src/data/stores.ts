@@ -34,7 +34,7 @@ export const stores: StoreLocation[] = [
       encodeURIComponent(
         "Ananthula Kedari Family Shopping Mall, Jayaprakash Narayan Road, Chowrasta, Warangal, Telangana 506002",
       ),
-    hoursNote: "Open all week — call to confirm today's hours",
+    hoursNote: "Call to confirm today's hours",
     verified: false,
   },
 ];

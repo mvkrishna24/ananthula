@@ -16,7 +16,7 @@ export default function NewArrivalsPage() {
     <>
       <section className="bg-rice pb-16 pt-44 md:pb-24">
         <div className="mx-auto max-w-[1680px] px-5 sm:px-8 lg:px-12">
-          <Eyebrow className="text-wine">Just Arrived</Eyebrow>
+          <Eyebrow className="text-wine">The Current Edit</Eyebrow>
           <h1
             data-reveal
             className="font-display mt-6 max-w-[11em] text-[clamp(2.8rem,7vw,7rem)]"
@@ -62,11 +62,11 @@ export default function NewArrivalsPage() {
 
           <div className="mt-24 border-t border-ink/10 pt-14 text-center">
             <p data-reveal className="font-display text-[clamp(1.8rem,3.4vw,3rem)]">
-              New stock arrives through the season.
+              The edit changes with the season.
             </p>
             <p data-reveal className="mt-3 text-muted">
-              Follow the store or ask on WhatsApp for this week&rsquo;s
-              arrivals.
+              Follow the store, or ask on WhatsApp what&rsquo;s currently at
+              the counter.
             </p>
             <div data-reveal className="mt-9 flex justify-center">
               <a
