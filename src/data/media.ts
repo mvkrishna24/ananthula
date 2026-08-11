@@ -171,18 +171,26 @@ export const media = {
   },
   weddingGroom: {
     src: "/images/wedding/wedding-groom.webp",
-    alt: "South Indian groom in wedding silk and ethnic wear",
+    alt: "South Indian groom in wedding silk with a gold-bordered angavastram",
+    // Portrait-native by art direction, NOT 3:4 — the groom beat is rendered in
+    // a 4:5 container at every breakpoint, so at native ratio these values are
+    // inert and no crop occurs. They only bite if a future surface re-frames him.
+    aspect: "4:5 portrait · ≥1400×1750 · wedding chapter groom beat",
     textile: "inkRawSilk",
-    aspect: "3:4 portrait · ≥1400×1867",
-    position: "50% 24%",
-    mobilePosition: "50% 22%",
+    position: "50% 30%",
+    mobilePosition: "50% 28%",
   },
   weddingFamily: {
-    src: "/images/wedding/family-wedding.webp",
-    alt: "Family gathered in coordinated wedding wear",
+    src: "/images/wedding/wedding-family.webp",
+    alt: "Wedding family gathered in festive silk — three generations together",
+    // Landscape-native by art direction, NOT a portrait card. Multiple people,
+    // so the frame must keep relationship, hands and garments intact; the beat
+    // renders 3:2 at EVERY breakpoint (it never narrows into a tall thumbnail),
+    // which makes these values inert at native ratio.
+    aspect: "3:2 landscape · ≥2400×1600 · wedding chapter family beat",
     textile: "ivoryTissue",
-    aspect: "3:4 portrait · ≥1400×1867",
-    position: "50% 32%",  // group centred; keep heads clear of the top crop
+    position: "50% 45%",
+    mobilePosition: "50% 45%",
   },
   weddingCouple: {
     src: "/images/wedding/wedding-couple.webp",

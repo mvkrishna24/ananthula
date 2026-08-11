@@ -77,7 +77,7 @@ face in the upper third of frame. Portrait 3:4.
 ## 03 · WEDDING — GROOM
 
 **File:** `public/images/wedding/wedding-groom.webp`
-**Aspect:** 3:4 portrait, export ≥1400×1867
+**Aspect:** 4:5 portrait, export ≥1400×1750
 
 **Prompt:**
 [CAMPAIGN ART DIRECTION] + Premium South Indian groom in an ivory raw-silk
@@ -85,14 +85,14 @@ kurta with a fine antique-gold-bordered angavastram over one shoulder,
 quiet confident expression, natural grooming, standing three-quarter view.
 Same deep warm charcoal environment and warm left key light as the bride
 portrait — the two images must read as one wedding, same evening, same
-photographer. Waist-up, face in the upper third. Portrait 3:4.
+photographer. Waist-up, face in the upper third. Portrait 4:5.
 
 ---
 
 ## 04 · WEDDING — FAMILY
 
-**File:** `public/images/wedding/family-wedding.webp`
-**Aspect:** 3:4 portrait, export ≥1400×1867
+**File:** `public/images/wedding/wedding-family.webp`
+**Aspect:** 3:2 LANDSCAPE, export ≥2400×1600
 
 **Prompt:**
 [CAMPAIGN ART DIRECTION] + Multi-generational South Indian family of five
@@ -100,8 +100,10 @@ at a wedding — grandmother in a muted emerald pattu saree, parents in
 festive silk, two children in traditional festive wear — gathered close,
 mid-laugh and genuinely warm, natural candid expressions, believable ages
 and proportions. Same deep warm interior and cinematic warm light as the
-bride and groom portraits. Group fills the middle of frame with headroom.
-Portrait 3:4. Avoid stiff corporate-stock posing entirely.
+bride and groom portraits. Group spread across a LANDSCAPE frame with
+headroom — the width is the point: keep every face, both hands of the
+adults and the full spread of garments inside the frame. Landscape 3:2.
+Avoid stiff corporate-stock posing entirely.
 
 ---
 
